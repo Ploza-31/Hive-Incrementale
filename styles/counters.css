@@ -1,0 +1,52 @@
+#counterSection {
+    display: flex;
+    flex-direction: column; 
+    text-align: center;
+    min-height: auto;
+    max-height: 540px;
+    overflow-y: scroll;
+}
+
+#counterSection::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    border-radius: 10px;
+}
+  
+#counterSection::-webkit-scrollbar-thumb {
+    background-color: #ffbc58;
+    border-radius: 10px;
+}
+
+.counterTitleSection {
+    display: 50;
+    background-color: #282F44;
+    border-radius: 5px;
+    margin: 5px;
+    transition: transform 0.1s ease-in-out;
+}
+
+.countersTitle {
+    margin: 5px;
+    top: 0;
+}
+
+.counterDiv {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 5px;
+}
+  
+.counters {
+    text-align: left;
+    margin: 2px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3a475a;
+    transition: transform 0.1s ease-in-out;
+}
+
+.counters:hover {
+    transform: scale(1.05);
+}

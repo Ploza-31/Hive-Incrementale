@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hive Incrementale</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/beeContents.css">
+    <link rel="stylesheet" href="styles/counters.css">
+</head>
+<body>
+    <div id="leftSection">
+        <div>
+            <span id="stats">Statistic</span>
+            <div id="counterSection">
+                <span id="line"></span>
+                <div id="populations" class="counterTitleSection">
+                    <p class="countersTitle">Populations</p>
+                    <div id="populationCount" class="counterDiv">
+                        <span id="queenCountSpan" class="counters">
+                            <img src="assets/Queen.png" class="icons">
+                            <span id="queenCount">Uncrowned Bee: 1</span> <!--Queen Counter-->
+                        </span>
+                        <span id="workerCountSpan" class="counters hidden">
+                            <img src="assets/Worker.png" class="icons">
+                            <span id="workerCount">Workers: 0</span> <!--Worker Counter-->
+                        </span>
+                    </div>
+                </div>
+                <div id="ingredients" class="counterTitleSection hidden">
+                    <p class="countersTitle">Ingredients</p>
+                    <div id="ingredientsCounters" class="counterDiv">
+                        <span id="nectarCountSpan" class="counters hidden">
+                            <img src="assets/Nectar.png" class="icons">
+                            <span id="nectarCount">Nectar: 0</span> <!--Nectar Counter-->
+                        </span>
+                        <span id="pollenCountSpan" class="counters hidden">
+                            <img src="assets/Pollen.png" class="icons">
+                            <span id="pollenCount">Pollen: 0</span> <!--Pollen Counter-->
+                        </span>
+                        <span id="honeyCountSpan" class="counters hidden">
+                            <img src="assets/Honey.png" class="icons">
+                            <span id="honeyCount">Honey: 0</span> <!--Honey Counter-->
+                        </span>
+                    </div>
+                </div>
+                <div id="materials" class="counterTitleSection hidden">
+                    <p class="countersTitle">Materials</p>
+                    <div id="materialsCounters" class="counterDiv">
+                        <span id="beeswaxCountSpan" class="counters hidden">
+                            <img src="assets/Beeswax.png" class="icons">
+                            <span id="beeswaxCount">Beeswax: 0</span> <!--Beeswax Counter-->
+                        </span>
+                        <span id="royalJellyCountSpan" class="counters hidden">
+                            <img src="assets/RoyalJelly.png" class="icons">
+                            <span id="royalJellyCount">Royal Jelly: 0</span> <!--Royal Jelly Counter-->
+                        </span>
+                    </div>
+                </div>
+                <div id="buildings" class="counterTitleSection hidden">
+                    <p class="countersTitle">Buildings</p>
+                    <div id="buildingsCounters" class="counterDiv">
+                        <span id="honeyCombCountSpan" class="counters hidden">
+                            <img src="assets/HoneyComb.png" class="icons">
+                            <span id="honeyCombCount">Honeycomb: 0</span> <!--Honeycomb Counter-->
+                        </span>
+                    </div>
+                </div>
+                <div id="hives" class="counterTitleSection hidden">
+                    <p class="countersTitle">Hives</p>
+                    <div id="hiveCounters" class="counterDiv">
+                        <span id="hiveCountSpan" class="counters hidden">
+                            <img src="assets/Hive.png" class="icons">
+                            <span id="hiveCount">Hive: 0</span> <!--Hive Counter-->
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="miscButtons">
+                <span id="settingsButton" class="beeBoxButtons">Options</span>
+                <span id="creditsButton" class="beeBoxButtons">Credits</span>
+                <span id="helpButton" class="beeBoxButtons">Achievements</span>
+                <span id="changeLogsButton" class="beeBoxButtons">Changelogs</span>
+            </div>
+        </div>
+    </div>
+    <div id="rightSection">
+        <span class="minMaxSection">
+            <p>Button Amount</p>
+            <span id="multiplierButton" class="beeBoxButtons" onclick="increaseAmount()">1x</span>
+        </span>
+        <div id="beeContents">
+            <div id="queenBox" class="beeBox"> <!--Queen Box-->
+                <img src="assets/Queen.png" class="beePngs">
+                <p id="queenBeeName" class="boxName">Uncrowned Bee</p>
+                <p id="queenOthers">"A wandering bee wants to be a queen."</p>
+                <div id="queenBoxInfo" class="beeinfo hidden">
+                        <p>"Produces Nectars and Worker bees. Only one per hive."</p>
+                    <ul class="beeProductionList">
+                        <p>Production List:</p>
+                        <li>Nectar: 1x per Click</li>
+                        <li>Worker: 1x per 10 Nectars</li>
+                    </ul>
+                </div>
+                <div class="beeBoxButtonSection">
+                    <span id="eatRoyalJellyButton" class="beeBoxButtons" onclick="box.queen.boxButtons.eatRoyal.function()">
+                        Eat Royal Jelly
+                    </span>
+                    <span id="queenWorkButton" class="beeBoxButtons hidden" onclick="box.queen.boxButtons.work.function()">
+                        Get Nectar
+                    </span>
+                    <span id="queenProduceButton" class="beeBoxButtons hidden" onclick="box.queen.boxButtons.produce.function()">
+                        Spawn Worker 1x
+                    </span>
+                </div>
+            </div>
+            <div id="workerBox" class="beeBox hidden"> <!--Worker Box-->
+                <img src="assets/Worker.png" class="beePngs">
+                <p id="workerBeeName" class="boxName">Worker Bee</p>
+                <div id="workerboxInfo" class="beeinfo">
+                        <p>"Produces Nectars and Pollens."</p>
+                    <ul class="beeProductionList">
+                        <p>Production List:</p>
+                        <li id="nectarsPerSecond">Nectar: +0/s</li>
+                        <li id="pollensPerSecond">Pollen: +0/s</li>
+                    </ul>
+                </div>
+                <p>Product to Collect:</p>
+                <div class="beeBoxButtonSection">
+                    <span id="collectNectarsButton" class="beeBoxButtons " onclick="box.worker.boxButtons.gotNectars.collect()">0 Nectars</span>
+                    <span id="collectPollensButton" class="beeBoxButtons " onclick="box.worker.boxButtons.gotPollens.collect()">0 Pollens</span>
+                </div>
+            </div>
+        </div>
+        <div id="Others">
+
+        </div>
+    </div>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/functions.js"></script>
+    <script src="scripts/variables.js"></script>
+    <script src="scripts/gui.js"></script>
+</body>
+</html>

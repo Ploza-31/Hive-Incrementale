@@ -1,0 +1,113 @@
+html, 
+    body {
+        height: 100%;
+        color: #ffd3a2;
+        user-select: none;
+        overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    margin: 0px;
+}
+  
+#leftSection {
+    display: flex;
+    padding: 10px;
+    text-align: center;
+    flex: 0 0 25%;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #191D32;
+    height: 100%;
+}
+
+#stats {
+    margin: 1px;
+}
+
+.miscButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #282F44;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+}
+  
+#rightSection {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    flex: 0 0 75%;
+    max-height: 100%;
+    background-color:#282F44;
+}
+
+.minMaxSection {
+    display: flex;
+    flex-direction: column;
+    align-self: left;
+    min-width: 100px;
+    max-width: 100px;
+    border-radius: 0px 0px 20px 0px;
+    padding: 5px;
+    background-color:#191D32;
+}
+
+#multiplierButton {
+    align-self: center;
+    margin: 0%;
+    width: 50px;
+    padding: 10px 2px 10px 2px;
+}
+
+.minMaxSection p {
+    margin: 2px;
+}
+
+.icons {
+    margin: 0px 4px 0px 0px;
+    width: 24px;
+    height: 24px;
+    max-width: 24px;
+    max-height: 24px;
+    vertical-align: middle;
+}
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+.shake {
+    animation: shake 0.5s;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+  
+  .red {
+    color: rgb(255, 101, 101);
+  }
+  
